@@ -19,7 +19,7 @@ public class StudentServiceManualSqlService {
     }
 
     public Student geStudentByIdWithSqlQuery(int id) {
-        Query jpqlQuery = getEntityManager().createQuery("SELECT s FROM Student s WHERE s.id=:id");
+        Query jpqlQuery = getEntityManager().createQuery("SELECT s FROM Student s WHERE s.courseId=:courseId");
         jpqlQuery.setParameter("id", id);
         return (Student) jpqlQuery.getSingleResult();
     }

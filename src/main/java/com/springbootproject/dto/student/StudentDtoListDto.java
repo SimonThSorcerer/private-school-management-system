@@ -1,6 +1,7 @@
 package com.springbootproject.dto.student;
 
 import jakarta.validation.Valid;
+import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 

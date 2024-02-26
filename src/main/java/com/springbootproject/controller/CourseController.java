@@ -39,7 +39,7 @@ public class CourseController {
     @GetMapping("/{studentId}/{courseId}")
     public String getCourseProfile(@PathVariable String studentId, @PathVariable String courseId, Model model) {
         // TODO open issue - path variable "studentId" should be retrieved from elsewhere (e.g. username used for login purposes)
-        log.trace("Request has been made to open information on course with id {}", courseId);
+        log.trace("Request has been made to open information on course with courseId {}", courseId);
 
         int courseIdNumber = DataFormatUtils.parseStringIdNumber(courseId);
 
@@ -59,7 +59,7 @@ public class CourseController {
     @PutMapping("/{studentId}/{courseId}/enroll")
     public String enrollStudent(@PathVariable String studentId, @PathVariable String courseId, Model model) {
         // TODO open issue - path variable "studentId" should be retrieved from elsewhere (e.g. username used for login purposes)
-        log.trace("Request has been made to to enroll student with the course with id {}", courseId);
+        log.trace("Request has been made to to enroll student with the course with courseId {}", courseId);
 
         int studentIdNumber = DataFormatUtils.parseStringIdNumber(studentId);
         int courseIdNumber = DataFormatUtils.parseStringIdNumber(courseId);
@@ -81,7 +81,7 @@ public class CourseController {
     @GetMapping("/{studentId}/{courseId}/unenroll")
     public String unenrollStudent(@PathVariable String studentId, @PathVariable String courseId, Model model) {
         // TODO open issue - path variable "studentId" should be retrieved from elsewhere (e.g. username used for login purposes)
-        log.trace("Request has been made to to unenroll student from the course with id {}", courseId);
+        log.trace("Request has been made to to unenroll student from the course with courseId {}", courseId);
 
         int studentIdNumber = DataFormatUtils.parseStringIdNumber(studentId);
         int courseIdNumber = DataFormatUtils.parseStringIdNumber(courseId);

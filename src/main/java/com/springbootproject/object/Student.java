@@ -31,6 +31,9 @@ public class Student {
     @Column(name = "EMAIL", nullable = false)
     private String studentEmail;
 
+    @Column(name = "EMAIL", nullable = false)
+    private int phoneNumber;
+
     public Student(int studentId, String studentName, int studentAge, String studentEmail) {
         this.studentId = studentId;
         this.studentName = studentName;

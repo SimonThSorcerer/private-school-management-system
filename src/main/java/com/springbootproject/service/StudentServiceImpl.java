@@ -76,7 +76,7 @@ public class StudentServiceImpl implements StudentService {
     public boolean checkIfStudentExistsById(Student student) throws StudentWithSuchAnIdDoesNotExistException {
         log.debug("checkIfStudentExistsById() was called");
         if (student == null && student.getStudentId() == 0) {
-            throw new StudentWithSuchAnIdDoesNotExistException("Student with such an id does not exist. Method: checkIfStudentExistsById() in StudentServiceImpl");
+            throw new StudentWithSuchAnIdDoesNotExistException("Student with such an courseId does not exist. Method: checkIfStudentExistsById() in StudentServiceImpl");
         }
         if (student != null && student.getStudentId() != 0 && studentRepository.existsById(student.getStudentId())) {
             return true;
@@ -91,7 +91,7 @@ public class StudentServiceImpl implements StudentService {
         if (optionalStudent != null && optionalStudent.isPresent()) {
             return optionalStudent.get();
         } else {
-            throw new StudentWithSuchAnIdDoesNotExistException("Student with such an id does not exist. Method: findStudentById() in StudentServiceImpl");
+            throw new StudentWithSuchAnIdDoesNotExistException("Student with such an courseId does not exist. Method: findStudentById() in StudentServiceImpl");
         }
     }
 
@@ -131,7 +131,7 @@ public class StudentServiceImpl implements StudentService {
         if (studentRepository.existsById(id)) {
             studentRepository.deleteById(id);
         } else {
-            throw new StudentWithSuchAnIdDoesNotExistException("Student with such an id does not exist and therefore can not be deleted. Method: deleteStudentById() in StudentServiceImpl");
+            throw new StudentWithSuchAnIdDoesNotExistException("Student with such an courseId does not exist and therefore can not be deleted. Method: deleteStudentById() in StudentServiceImpl");
         }
     }
 }

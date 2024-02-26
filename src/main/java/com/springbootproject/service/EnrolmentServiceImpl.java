@@ -67,10 +67,10 @@ public class EnrolmentServiceImpl implements EnrolmentService {
 
     @Override
     public Student enroll(int studentId, int courseId) {
-        log.trace("starting the process of enrollment of student with id {} to course with id {}", studentId, courseId);
+        log.trace("starting the process of enrollment of student with courseId {} to course with courseId {}", studentId, courseId);
         // student record is retrieved from the database.
         Student student = studentRepository.findById(studentId)
-                .orElseThrow(() -> new ElementNotFoundException("Student not found with id " + studentId));
+                .orElseThrow(() -> new ElementNotFoundException("Student not found with courseId " + studentId));
 
         // check if student has already been enrolled in any course
         if (student.getStudentCourse() != null) {
@@ -80,7 +80,7 @@ public class EnrolmentServiceImpl implements EnrolmentService {
 
         // desired course is retrieved from the database
         Course course = courseRepository.findById(courseId)
-                .orElseThrow(() -> new ElementNotFoundException("Course not found with id " + courseId));
+                .orElseThrow(() -> new ElementNotFoundException("Course not found with courseId " + courseId));
 
         // check if desired course has vacant seats
         if (course.getCourseStudentListForeignKey().size() >= course.getCourseCapacity()) {
@@ -91,21 +91,21 @@ public class EnrolmentServiceImpl implements EnrolmentService {
         // update the student record
         student.setStudentCourse(course);
         studentRepository.save(student);
-        log.debug("Student {} (id {}) successfully enrolled in the course {} (id {})", student.getStudentName(), student.getStudentId(), course.getCourseName(), course.getCourseId());
+        log.debug("Student {} (courseId {}) successfully enrolled in the course {} (courseId {})", student.getStudentName(), student.getStudentId(), course.getCourseName(), course.getCourseId());
         return student;
     }
 
     @Override
     public Student unenroll(int studentId, int courseId) {
-        log.trace("starting the process of unenrollment of student with id {} to course with id {}", studentId, courseId);
+        log.trace("starting the process of unenrollment of student with courseId {} to course with courseId {}", studentId, courseId);
 
         // student record is retrieved from the database.
         Student student = studentRepository.findById(studentId)
-                .orElseThrow(() -> new ElementNotFoundException("Student not found with id " + studentId));
+                .orElseThrow(() -> new ElementNotFoundException("Student not found with courseId " + studentId));
 
         // desired course is retrieved from the database
         Course course = courseRepository.findById(courseId)
-                .orElseThrow(() -> new ElementNotFoundException("Course not found with id " + courseId));
+                .orElseThrow(() -> new ElementNotFoundException("Course not found with courseId " + courseId));
 
         // nothing is changed if student is not actually enrolled in any course
         if (student.getStudentCourse() == null) {
@@ -119,7 +119,7 @@ public class EnrolmentServiceImpl implements EnrolmentService {
         } else {
             student.setStudentCourse(null);
             student = studentRepository.save(student);
-            log.debug("Student {} (id {}) successfully unenrolled from the course {} (id {})", student.getStudentName(), student.getStudentId(), course.getCourseName(), course.getCourseId());
+            log.debug("Student {} (courseId {}) successfully unenrolled from the course {} (courseId {})", student.getStudentName(), student.getStudentId(), course.getCourseName(), course.getCourseId());
             return student;
         }
     }

@@ -27,7 +27,7 @@ class StudentIdDtoTest {
         assertEquals(1, violations1.size(), "Expected 1 validation violations.");
         for (ConstraintViolation<StudentIdDto> violation : violations1) {
             if (violation.getPropertyPath().toString().equals("id")) {
-                assertEquals("ID: Must have a value and be above 1 and below 2000000000.", violation.getMessage(), "Unexpected validation message for id");
+                assertEquals("ID: Must have a value and be above 1 and below 2000000000.", violation.getMessage(), "Unexpected validation message for courseId");
             }
         }
 
@@ -38,7 +38,7 @@ class StudentIdDtoTest {
         assertEquals(1, violations2.size(), "Expected 1 validation violations.");
         for (ConstraintViolation<StudentIdDto> violation : violations2) {
             if (violation.getPropertyPath().toString().equals("id")) {
-                assertEquals("ID: Must have a value and be above 1 and below 2000000000.", violation.getMessage(), "Unexpected validation message for id");
+                assertEquals("ID: Must have a value and be above 1 and below 2000000000.", violation.getMessage(), "Unexpected validation message for courseId");
             }
         }
 
@@ -49,7 +49,7 @@ class StudentIdDtoTest {
         assertEquals(1, violations3.size(), "Expected 1 validation violations.");
         for (ConstraintViolation<StudentIdDto> violation : violations3) {
             if (violation.getPropertyPath().toString().equals("id")) {
-                assertEquals("ID: Must have a value and be above 1 and below 2000000000.", violation.getMessage(), "Unexpected validation message for id");
+                assertEquals("ID: Must have a value and be above 1 and below 2000000000.", violation.getMessage(), "Unexpected validation message for courseId");
             }
         }
     }

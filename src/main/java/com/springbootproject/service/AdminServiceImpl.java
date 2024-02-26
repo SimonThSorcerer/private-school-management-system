@@ -26,7 +26,7 @@ public class AdminServiceImpl implements AdminService{
 
     @Override
     public Course show(int id) {
-        return courseRepository.findById(id).orElseThrow(() -> new ElementNotFoundException("Course not found with id: " + id));
+        return courseRepository.findById(id).orElseThrow(() -> new ElementNotFoundException("Course not found with courseId: " + id));
     }
 
     @Override

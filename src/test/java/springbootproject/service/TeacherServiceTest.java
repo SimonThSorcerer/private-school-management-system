@@ -48,10 +48,10 @@ class TeacherServiceTest {
 //
 //    @Test
 //    public void TeacherService_deleteTeacherById_deletesTeacher() {
-//        TeacherDto teacherDto = TeacherDto.builder().id(1)
+//        TeacherDto teacherDto = TeacherDto.builder().courseId(1)
 //                .name("Jon").email("jon@mail.com").build();
 //
-//        TeacherDto teacherDto2 = TeacherDto.builder().id(2)
+//        TeacherDto teacherDto2 = TeacherDto.builder().courseId(2)
 //                .name("Jane").email("jane@mail.com").build();
 //
 //
