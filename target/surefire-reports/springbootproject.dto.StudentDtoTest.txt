@@ -1,0 +1,16 @@
+-------------------------------------------------------------------------------
+Test set: springbootproject.dto.StudentDtoTest
+-------------------------------------------------------------------------------
+Tests run: 2, Failures: 1, Errors: 0, Skipped: 0, Time elapsed: 0.199 s <<< FAILURE! -- in springbootproject.dto.StudentDtoTest
+springbootproject.dto.StudentDtoTest.StudentDto_validationConstraintTesting_invalidStudentDtoShouldThrowTheRightTypeOfViolationMessages -- Time elapsed: 0.080 s <<< FAILURE!
+org.opentest4j.AssertionFailedError: Expected 2 violations for the email property ==> expected: <2> but was: <0>
+	at org.junit.jupiter.api.AssertionFailureBuilder.build(AssertionFailureBuilder.java:151)
+	at org.junit.jupiter.api.AssertionFailureBuilder.buildAndThrow(AssertionFailureBuilder.java:132)
+	at org.junit.jupiter.api.AssertEquals.failNotEqual(AssertEquals.java:197)
+	at org.junit.jupiter.api.AssertEquals.assertEquals(AssertEquals.java:150)
+	at org.junit.jupiter.api.Assertions.assertEquals(Assertions.java:563)
+	at springbootproject.dto.StudentDtoTest.StudentDto_validationConstraintTesting_invalidStudentDtoShouldThrowTheRightTypeOfViolationMessages(StudentDtoTest.java:44)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:568)
+	at java.base/java.util.ArrayList.forEach(ArrayList.java:1511)
+	at java.base/java.util.ArrayList.forEach(ArrayList.java:1511)
+
