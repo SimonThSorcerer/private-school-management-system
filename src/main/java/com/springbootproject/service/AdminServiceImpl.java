@@ -11,7 +11,7 @@ import java.util.List;
 
 @Service
 @Slf4j
-public class AdminServiceImpl implements AdminService{
+public class AdminServiceImpl implements AdminService {
     private final CourseRepository courseRepository;
 
     @Autowired
@@ -26,7 +26,7 @@ public class AdminServiceImpl implements AdminService{
 
     @Override
     public Course show(int id) {
-        return courseRepository.findById(id).orElseThrow(() -> new ElementNotFoundException("Course not found with courseId: " + id));
+        return courseRepository.findById(id).orElseThrow(() -> new ElementNotFoundException("Course not found with courseDtoId: " + id));
     }
 
     @Override

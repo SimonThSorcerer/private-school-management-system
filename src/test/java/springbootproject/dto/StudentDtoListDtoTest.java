@@ -53,8 +53,8 @@ class StudentDtoListDtoTest {
         List<ConstraintViolation<StudentDto>> violations1 = new ArrayList<>();
         List<ConstraintViolation<StudentDto>> violations2 = new ArrayList<>();
 
-        violations1.addAll(validator.validate(studentDtoListDto.getStudentDtoListDto().get(0)));
-        violations2.addAll(validator.validate(studentDtoListDto.getStudentDtoListDto().get(1)));
+        violations1.addAll(validator.validate(studentDtoListDto.getStudentDtoList().get(0)));
+        violations2.addAll(validator.validate(studentDtoListDto.getStudentDtoList().get(1)));
 
         assertEquals(5, violations1.size(), "Expected 5 validation violations for studentDto1.");
         assertEquals(2, violations2.size(), "Expected 2 validation violations for studentDto2.");

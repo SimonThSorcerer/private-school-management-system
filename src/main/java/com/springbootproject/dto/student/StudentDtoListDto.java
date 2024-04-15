@@ -11,9 +11,9 @@ import java.util.List;
 @Data
 @NoArgsConstructor
 public class StudentDtoListDto {
-    private final List<StudentDto> studentDtoListDto = new ArrayList<>();
+    private final List<StudentDto> studentDtoList = new ArrayList<>();
 
     public void addStudentDto(@Valid StudentDto studentDto) {
-        this.studentDtoListDto.add(studentDto);
+        this.studentDtoList.add(studentDto);
     }
 }

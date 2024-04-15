@@ -13,30 +13,19 @@ import java.util.List;
 @NoArgsConstructor
 @AllArgsConstructor
 @Builder
-@Table(name = "TEACHER")
+@Table(name = "teacher")
 public class Teacher {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Column(name = "ID", nullable = false)
-    private int teacherId;
+    @Column(name = "id", nullable = false)
+    private int id;
 
-    @Column(name = "Name", nullable = false)
-    private String teacherName;
+    @Column(name = "name", nullable = false)
+    private String name;
 
-    @Column(name = "EMAIl", nullable = false)
-    private String teacherEmail;
+    @Column(name = "email", nullable = false)
+    private String email;
 
-    @OneToMany(cascade = CascadeType.PERSIST, mappedBy = "courseTeacher")
+    @OneToMany(cascade = CascadeType.PERSIST, mappedBy = "teacher")
     private List<Course> teacherCourseListForeignKey;
-
-    @Override
-    public String toString() {
-        return teacherName;
-    }
-
-    public Teacher(int teacherId, String teacherName, String teacherEmail) {
-        this.teacherId = teacherId;
-        this.teacherName = teacherName;
-        this.teacherEmail = teacherEmail;
-    }
 }

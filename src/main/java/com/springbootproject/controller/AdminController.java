@@ -26,7 +26,7 @@ public class AdminController {
         return "admin/main";
     }
 
-    @GetMapping("{courseId}")
+    @GetMapping("{courseDtoId}")
     public String show(@PathVariable("id") int id, Model model){
         model.addAttribute("course", adminService.show(id));
         return "admin/show";
@@ -45,20 +45,20 @@ public class AdminController {
         return "redirect:/admin/course";
     }
 
-    @GetMapping("{courseId}/edit")
+    @GetMapping("{courseDtoId}/edit")
     public String edit(Model model, @PathVariable("id") int id){
         model.addAttribute("course", adminService.show(id));
         model.addAttribute("teacherList", teacherService.getAllTeachers());
         return "admin/edit";
     }
 
-    @PatchMapping("{courseId}")
+    @PatchMapping("{courseDtoId}")
     public String update(@ModelAttribute("course") Course course){
         adminService.save(course);
         return "redirect:/admin/course";
     }
 
-    @DeleteMapping("{courseId}")
+    @DeleteMapping("{courseDtoId}")
     public String delete(@PathVariable("id") int id){
         adminService.delete(id);
         return "redirect:/admin/course";

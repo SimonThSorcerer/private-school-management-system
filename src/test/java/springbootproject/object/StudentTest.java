@@ -10,38 +10,38 @@ import static org.junit.jupiter.api.Assertions.assertEquals;
 class StudentTest {
 
     Course courseTest1 = Course.builder()
-            .courseId(1)
-            .courseName("Course name")
-            .courseCapacity(200)
+            .id(1)
+            .name("Course name")
+            .capacity(200)
             .build();
 
     Student studentTest1PositiveTestWithoutCourse = Student.builder()
-            .studentId(1)
-            .studentName("Test Name")
-            .studentAge(12)
-            .studentEmail("proper@email.com")
+            .id(1)
+            .name("Test Name")
+            .age(12)
+            .email("proper@email.com")
             .build();
 
     Student studentTest2PositiveTestWithCourse = Student.builder()
-            .studentId(2)
-            .studentName("Test Name 2")
-            .studentAge(1)
-            .studentEmail("simon@citromail.hu")
-            .studentCourse(courseTest1)
+            .id(2)
+            .name("Test Name 2")
+            .age(1)
+            .email("simon@citromail.hu")
+            .course(courseTest1)
             .build();
 
     @Test
     @DisplayName("#1: Positive test, valid students should not throw exceptions or constraint violation messages.")
     void positiveTestingStudentObjectCreation() {
 
-        assertEquals(1, studentTest1PositiveTestWithoutCourse.getStudentId());
-        assertEquals("Test Name", studentTest1PositiveTestWithoutCourse.getStudentName());
-        assertEquals(12, studentTest1PositiveTestWithoutCourse.getStudentAge());
-        assertEquals("proper@email.com", studentTest1PositiveTestWithoutCourse.getStudentEmail());
+        assertEquals(1, studentTest1PositiveTestWithoutCourse.getId());
+        assertEquals("Test Name", studentTest1PositiveTestWithoutCourse.getName());
+        assertEquals(12, studentTest1PositiveTestWithoutCourse.getAge());
+        assertEquals("proper@email.com", studentTest1PositiveTestWithoutCourse.getEmail());
 
-        assertEquals(2, studentTest2PositiveTestWithCourse.getStudentId());
-        assertEquals("Test Name 2", studentTest2PositiveTestWithCourse.getStudentName());
-        assertEquals(1, studentTest2PositiveTestWithCourse.getStudentAge());
-        assertEquals("simon@citromail.hu", studentTest2PositiveTestWithCourse.getStudentEmail());
+        assertEquals(2, studentTest2PositiveTestWithCourse.getId());
+        assertEquals("Test Name 2", studentTest2PositiveTestWithCourse.getName());
+        assertEquals(1, studentTest2PositiveTestWithCourse.getAge());
+        assertEquals("simon@citromail.hu", studentTest2PositiveTestWithCourse.getEmail());
     }
 }

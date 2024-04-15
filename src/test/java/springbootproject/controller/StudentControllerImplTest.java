@@ -52,7 +52,7 @@ public class StudentControllerImplTest {
 //
 //        mockMvc.perform(MockMvcRequestBuilders.post("/student/addnewstudentsubmit")
 //                        .contentType(MediaType.APPLICATION_FORM_URLENCODED)
-//                        .param("courseId", "1")
+//                        .param("courseDtoId", "1")
 //                        .param("name", " ")
 //                        .param("age", "24")
 //                        .param("email", "simon@gmail.com"))

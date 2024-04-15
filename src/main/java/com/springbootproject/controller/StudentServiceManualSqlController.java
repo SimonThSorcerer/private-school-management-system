@@ -32,7 +32,7 @@ public class StudentServiceManualSqlController {
     @PostMapping("/student/manualsql/retrivestudentsqlformaction")
     public String displayStudentBasedOnIdFormAction(@Valid @ModelAttribute("studentId") StudentIdDto studentIdDto, Model model, BindingResult bindingResult) {
         log.debug("displayStudentBasedOnIdFormAction() method was called");
-        Student student = studentServiceManualSqlService.geStudentByIdWithSqlQuery(studentIdDto.getId());
+        Student student = studentServiceManualSqlService.geStudentByIdWithSqlQuery(studentIdDto.getStudentDtoId());
         model.addAttribute("bindingResult", bindingResult);
         model.addAttribute("studentFoundById", student);
         return "/student/manualsql/retrivestudentsql";

@@ -12,7 +12,7 @@ import lombok.NoArgsConstructor;
 public class StudentAgeDto {
     @Max(value = 2_000_000_000, message = "Age: Exceeded the age limit of 2_000_000_000.")
     @Min(value = 1, message = "Age: Must have a value and be above 1.")
-    private int studentAge;
+    private int StudentDtoAge;
 }
 
 

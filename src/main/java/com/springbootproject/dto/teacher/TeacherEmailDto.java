@@ -15,6 +15,6 @@ public class TeacherEmailDto {
     @Email(message = "Email: Format is invalid. Please provide a valid email address.")
     @Size(max = 1_000, message = "Email: Over the character limit of 1_000.")
     @Pattern(regexp = "^[^@.]+@[^@.]+\\.[^@.]+$", message = "Email: Format is invalid. Please provide a valid email address.")
-    private String teacherEmail;
+    private String teacherDtoEmail;
 }
 

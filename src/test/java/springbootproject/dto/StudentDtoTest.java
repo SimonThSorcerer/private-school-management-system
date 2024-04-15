@@ -30,7 +30,7 @@ class StudentDtoTest {
         assertEquals(5, violations.size(), "Expected 5 validation violations.");
         for (ConstraintViolation<StudentDto> violation : violations) {
             if (violation.getPropertyPath().toString().equals("id")) {
-                assertEquals("ID: Must have a value and be above 1 and below 2000000000.", violation.getMessage(), "Unexpected validation message for courseId");
+                assertEquals("ID: Must have a value and be above 1 and below 2000000000.", violation.getMessage(), "Unexpected validation message for courseDtoId");
             } else if (violation.getPropertyPath().toString().equals("name")) {
                 assertEquals("Name: Name must have a value, cannot be blank.", violation.getMessage(), "Unexpected validation message for name");
             } else if (violation.getPropertyPath().toString().equals("age")) {
@@ -59,7 +59,7 @@ class StudentDtoTest {
         assertEquals(5, violations2.size(), "Expected 5 validation violations.");
         for (ConstraintViolation<StudentDto> violation : violations2) {
             if (violation.getPropertyPath().toString().equals("id")) {
-                assertEquals("ID: Must have a value and be above 1 and below 2000000000.", violation.getMessage(), "Unexpected validation message for courseId");
+                assertEquals("ID: Must have a value and be above 1 and below 2000000000.", violation.getMessage(), "Unexpected validation message for courseDtoId");
             } else if (violation.getPropertyPath().toString().equals("name")) {
                 assertEquals("Name: Over the character limit of 1000.", violation.getMessage(), "Unexpected validation message for name");
             } else if (violation.getPropertyPath().toString().equals("age")) {
@@ -87,7 +87,7 @@ class StudentDtoTest {
         assertEquals(4, violations3.size(), "Expected 4 validation violations.");
         for (ConstraintViolation<StudentDto> violation : violations3) {
             if (violation.getPropertyPath().toString().equals("id")) {
-                assertEquals("ID: Must have a value and be above 1 and below 2000000000.", violation.getMessage(), "Unexpected validation message for courseId");
+                assertEquals("ID: Must have a value and be above 1 and below 2000000000.", violation.getMessage(), "Unexpected validation message for courseDtoId");
             } else if (violation.getPropertyPath().toString().equals("name")) {
                 assertEquals("Name: Over the character limit of 1000.", violation.getMessage(), "Unexpected validation message for name");
             } else if (violation.getPropertyPath().toString().equals("age")) {
@@ -106,7 +106,7 @@ class StudentDtoTest {
         assertEquals(5, violations4.size(), "Expected 5 validation violations.");
         for (ConstraintViolation<StudentDto> violation : violations4) {
             if (violation.getPropertyPath().toString().equals("id")) {
-                assertEquals("ID: Must have a value and be above 1 and below 2000000000.", violation.getMessage(), "Unexpected validation message for courseId");
+                assertEquals("ID: Must have a value and be above 1 and below 2000000000.", violation.getMessage(), "Unexpected validation message for courseDtoId");
             } else if (violation.getPropertyPath().toString().equals("name")) {
                 assertEquals("Name: Over the character limit of 1000.", violation.getMessage(), "Unexpected validation message for name");
             } else if (violation.getPropertyPath().toString().equals("age")) {

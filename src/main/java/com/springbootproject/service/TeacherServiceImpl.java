@@ -20,9 +20,9 @@ public class TeacherServiceImpl implements TeacherService {
     }
     public Teacher saveTeacher(TeacherDto teacherDto) {
         Teacher teacher = new Teacher();
-        teacher.setTeacherId(teacherDto.getId());
-        teacher.setTeacherName(teacherDto.getName());
-        teacher.setTeacherEmail(teacherDto.getEmail());
+        teacher.setId(teacherDto.getTeacherDtoId());
+        teacher.setName(teacherDto.getTeacherDtoName());
+        teacher.setEmail(teacherDto.getTeacherDtoEmail());
         try {
         return teacherRepository.save(teacher);
         } catch (DataIntegrityViolationException e) {

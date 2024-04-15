@@ -45,63 +45,63 @@
 //
 //        //TestStudent 1
 //        testStudent1 = new Student();
-//        testStudent1.setCourseId(1);
+//        testStudent1.setCourseDtoId(1);
 //        testStudent1.setName("Simon DTO");
 //        testStudent1.setAge(2);
 //        testStudent1.setEmail("test@mail.com");
 //
 //        //TestStudent 2
 //        testStudent2 = new Student();
-//        testStudent2.setCourseId(0);
+//        testStudent2.setCourseDtoId(0);
 //        testStudent2.setName("Péter DTO");
 //        testStudent2.setAge(4);
 //        testStudent2.setEmail("email@provider.com");
 //
 //        //TestStudent 3
 //        testStudent3 = new Student();
-//        testStudent3.setCourseId(3);
+//        testStudent3.setCourseDtoId(3);
 //        testStudent3.setName(" ");
 //        testStudent3.setAge(2);
 //        testStudent3.setEmail("super123@poweeeeeeeeeeeeeeeeeeeeeeeeeeeer.com");
 //
 //        //TestStudent 4
 //        testStudent4 = new Student();
-//        testStudent4.setCourseId(4);
+//        testStudent4.setCourseDtoId(4);
 //        testStudent4.setName("DTO Guy");
 //        testStudent4.setAge(-1999);
 //        testStudent4.setEmail("notan@emailaddress.com");
 //
 //        //TestStudent 5
 //        testStudent5 = new Student();
-//        testStudent5.setCourseId(5);
+//        testStudent5.setCourseDtoId(5);
 //        testStudent5.setName("DTO Girl");
 //        testStudent5.setAge(0);
 //        testStudent5.setEmail("notan@emailaddress.com");
 //
 //        //TestStudent 6
 //        testStudent6 = new Student();
-//        testStudent6.setCourseId(6);
+//        testStudent6.setCourseDtoId(6);
 //        testStudent6.setName("Emailtest");
 //        testStudent6.setAge(2);
 //        testStudent6.setEmail("notthrightformat.emailaddress@com");
 //
 //        //TestStudent 7
 //        testStudent7 = new Student();
-//        testStudent7.setCourseId(7);
+//        testStudent7.setCourseDtoId(7);
 //        testStudent7.setName("Email Test");
 //        testStudent7.setAge(2);
 //        testStudent7.setEmail("not.areal@emailaddress.com");
 //
 //        //TestStudent 8
 //        testStudent8 = new Student();
-//        testStudent8.setCourseId(8);
+//        testStudent8.setCourseDtoId(8);
 //        testStudent8.setName("Email Test Two");
 //        testStudent8.setAge(2);
 //        testStudent8.setEmail("not@correct@emailaddress.com");
 //
 //        //TestStudent 9
 //        testStudent9 = new Student();
-//        testStudent9.setCourseId(9);
+//        testStudent9.setCourseDtoId(9);
 //        testStudent9.setName("Email Test Two");
 //        testStudent9.setAge(2);
 //        testStudent9.setEmail("notcorrect@emailaddresscom");
@@ -111,63 +111,63 @@
 //
 //        //TestStudentDto 1
 //        testStudentDto1 = new StudentDto();
-//        testStudentDto1.setCourseId(1);
+//        testStudentDto1.setCourseDtoId(1);
 //        testStudentDto1.setName("Simon DTO");
 //        testStudentDto1.setAge(2);
 //        testStudentDto1.setEmail("test@mail.com");
 //
 //        //TestStudentDto 2
 //        testStudentDto2 = new StudentDto();
-//        testStudentDto2.setCourseId(0);
+//        testStudentDto2.setCourseDtoId(0);
 //        testStudentDto2.setName("Péter DTO");
 //        testStudentDto2.setAge(4);
 //        testStudentDto2.setEmail("email@provider.com");
 //
 //        //TestStudentDto 3
 //        testStudentDto3 = new StudentDto();
-//        testStudentDto3.setCourseId(3);
+//        testStudentDto3.setCourseDtoId(3);
 //        testStudentDto3.setName(" ");
 //        testStudentDto3.setAge(2);
 //        testStudentDto3.setEmail("super123@poweeeeeeeeeeeeeeeeeeeeeeeeeeeer.com");
 //
 //        //TestStudentDto 4
 //        testStudentDto4 = new StudentDto();
-//        testStudentDto4.setCourseId(4);
+//        testStudentDto4.setCourseDtoId(4);
 //        testStudentDto4.setName("DTO Guy");
 //        testStudentDto4.setAge(-1999);
 //        testStudentDto4.setEmail("notan@emailaddress.com");
 //
 //        //TestStudentDto 5
 //        testStudentDto5 = new StudentDto();
-//        testStudentDto5.setCourseId(5);
+//        testStudentDto5.setCourseDtoId(5);
 //        testStudentDto5.setName("DTO Girl");
 //        testStudentDto5.setAge(0);
 //        testStudentDto5.setEmail("notan@emailaddress.com");
 //
 //        //TestStudentDto 6
 //        testStudentDto6 = new StudentDto();
-//        testStudentDto6.setCourseId(6);
+//        testStudentDto6.setCourseDtoId(6);
 //        testStudentDto6.setName("Emailtest");
 //        testStudentDto6.setAge(2);
 //        testStudentDto6.setEmail("notthrightformat.emailaddress@com");
 //
 //        //TestStudentDto 7
 //        testStudentDto7 = new StudentDto();
-//        testStudentDto7.setCourseId(7);
+//        testStudentDto7.setCourseDtoId(7);
 //        testStudentDto7.setName("Email Test");
 //        testStudentDto7.setAge(2);
 //        testStudentDto7.setEmail("not.areal@emailaddress.com");
 //
 //        //TestStudentDto 8
 //        testStudentDto8 = new StudentDto();
-//        testStudentDto8.setCourseId(8);
+//        testStudentDto8.setCourseDtoId(8);
 //        testStudentDto8.setName("Email Test Two");
 //        testStudentDto8.setAge(2);
 //        testStudentDto8.setEmail("not@correct@emailaddress.com");
 //
 //        //TestStudentDto 9
 //        testStudentDto9 = new StudentDto();
-//        testStudentDto9.setCourseId(9);
+//        testStudentDto9.setCourseDtoId(9);
 //        testStudentDto9.setName("Email Test Two");
 //        testStudentDto9.setAge(2);
 //        testStudentDto9.setEmail("notcorrect@emailaddresscom");
@@ -397,7 +397,7 @@
 ////    @Test
 ////    @DisplayName("#8: Testing updateStudent(), update Student in student table should not throw exceptions in case of valid Student")
 ////    void StudentServiceImpl_updateStudent_positiveTestShouldNotThrowAnyExceptions() {
-////        when(studentRepository.findById(testStudentDto1.getCourseId())).thenReturn(Optional.of(testStudent1));
+////        when(studentRepository.findById(testStudentDto1.getCourseDtoId())).thenReturn(Optional.of(testStudent1));
 ////
 ////        assertDoesNotThrow(() -> {
 ////            studentServiceImpl.updateStudent(testStudentDto1);
@@ -479,7 +479,7 @@
 ////        when(studentRepository.findById(existingStudentId)).thenReturn(Optional.ofNullable(testStudent1));
 ////
 ////        assertDoesNotThrow(() -> {
-////            studentServiceImpl.findStudentById(testStudent1.getCourseId());
+////            studentServiceImpl.findStudentById(testStudent1.getCourseDtoId());
 ////        });
 ////    }
 ////
@@ -491,7 +491,7 @@
 ////        when(studentRepository.findById(existingStudentId)).thenReturn(Optional.ofNullable(null));
 ////
 ////        assertThrows(StudentWithSuchAnIdDoesNotExistException.class, () -> {
-////            studentServiceImpl.findStudentById(testStudent1.getCourseId());
+////            studentServiceImpl.findStudentById(testStudent1.getCourseDtoId());
 ////        });
 ////    }
 ////

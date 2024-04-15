@@ -20,11 +20,11 @@ public class CourseDto {
 
     @Min(value = 1, message = "ID: Must have a value and be above 1 and below 2_000_000_000.")
     @Max(value = 2_000_000_000, message = "ID: Must have a value and be above 1 and below 2_000_000_000.")
-    private int courseDtoId;
+    private int courseDtoid;
 
     @NotBlank(message = "Name: Name must have a value, cannot be blank.")
     @Size(max = 1_000, message = "Name: Over the character limit of 1_000.")
-    private String courseDtoName;
+    private String courseDtoname;
 
     @NotNull
     private List<Student> studentList;

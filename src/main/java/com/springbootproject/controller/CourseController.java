@@ -36,10 +36,10 @@ public class CourseController {
         return "enrollment/course-selection";
     }
 
-    @GetMapping("/{studentId}/{courseId}")
+    @GetMapping("/{studentId}/{courseDtoId}")
     public String getCourseProfile(@PathVariable String studentId, @PathVariable String courseId, Model model) {
         // TODO open issue - path variable "studentId" should be retrieved from elsewhere (e.g. username used for login purposes)
-        log.trace("Request has been made to open information on course with courseId {}", courseId);
+        log.trace("Request has been made to open information on course with courseDtoId {}", courseId);
 
         int courseIdNumber = DataFormatUtils.parseStringIdNumber(courseId);
 
@@ -49,17 +49,17 @@ public class CourseController {
             model.addAttribute("student", studentId); // TODO to confirm if needed
             model.addAttribute("course", course);
 
-            log.debug("Information on course {} retrieved.", course.getCourseName());
+            log.debug("Information on course {} retrieved.", course.getName());
             return "enrollment/course-profile";
         } catch (NullPointerException e) { // is not checked at the AdminService level
             throw new ElementNotFoundException(e.getMessage());
         }
     }
 
-    @PutMapping("/{studentId}/{courseId}/enroll")
+    @PutMapping("/{studentId}/{courseDtoId}/enroll")
     public String enrollStudent(@PathVariable String studentId, @PathVariable String courseId, Model model) {
         // TODO open issue - path variable "studentId" should be retrieved from elsewhere (e.g. username used for login purposes)
-        log.trace("Request has been made to to enroll student with the course with courseId {}", courseId);
+        log.trace("Request has been made to to enroll student with the course with courseDtoId {}", courseId);
 
         int studentIdNumber = DataFormatUtils.parseStringIdNumber(studentId);
         int courseIdNumber = DataFormatUtils.parseStringIdNumber(courseId);
@@ -78,10 +78,10 @@ public class CourseController {
         }
     }
 
-    @GetMapping("/{studentId}/{courseId}/unenroll")
+    @GetMapping("/{studentId}/{courseDtoId}/unenroll")
     public String unenrollStudent(@PathVariable String studentId, @PathVariable String courseId, Model model) {
         // TODO open issue - path variable "studentId" should be retrieved from elsewhere (e.g. username used for login purposes)
-        log.trace("Request has been made to to unenroll student from the course with courseId {}", courseId);
+        log.trace("Request has been made to to unenroll student from the course with courseDtoId {}", courseId);
 
         int studentIdNumber = DataFormatUtils.parseStringIdNumber(studentId);
         int courseIdNumber = DataFormatUtils.parseStringIdNumber(courseId);

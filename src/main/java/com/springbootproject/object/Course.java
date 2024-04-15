@@ -13,34 +13,34 @@ import java.util.List;
 @NoArgsConstructor
 @AllArgsConstructor
 @Builder
-@Table(name = "COURSE")
+@Table(name = "course")
 public class Course {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Column(name = "ID", nullable = false)
-    private int courseId;
+    @Column(name = "id", nullable = false)
+    private int id;
 
-    @Column(name = "NAME", nullable = false)
-    private String courseName;
+    @Column(name = "name", nullable = false)
+    private String name;
 
     @ManyToOne(cascade = CascadeType.PERSIST)
-    @JoinColumn(name = "teacherCourseListForeignKey")
-    private Teacher courseTeacher;
+    @JoinColumn(name = "teacher_courselist_foreignkey")
+    private Teacher teacher;
 
-    @Column(name = "CAPACITY", nullable = false)
-    private int courseCapacity;
+    @Column(name = "capacity", nullable = false)
+    private int capacity;
 
-    @OneToMany(cascade = CascadeType.PERSIST, mappedBy = "studentCourse")
+    @OneToMany(cascade = CascadeType.PERSIST, mappedBy = "course")
     private List<Student> courseStudentListForeignKey;
 
     public Course(int courseID, String courseName, int courseCapacity) {
-        this.courseId = courseID;
-        this.courseName = courseName;
-        this.courseCapacity = courseCapacity;
+        this.id = courseID;
+        this.name = courseName;
+        this.capacity = courseCapacity;
     }
 
     @Override
     public String toString() {
-        return  courseName;
+        return  name;
     }
 }

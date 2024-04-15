@@ -11,38 +11,38 @@ import lombok.NoArgsConstructor;
 @NoArgsConstructor
 @Entity
 @Builder
-@Table(name = "STUDENT")
+@Table(name = "student")
 public class Student {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Column(name = "ID", nullable = false)
-    private int studentId;
+    @Column(name = "id", nullable = false)
+    private int id;
 
-    @Column(name = "NAME", nullable = false)
-    private String studentName;
+    @Column(name = "name", nullable = false)
+    private String name;
 
-    @Column(name = "AGE", nullable = false)
-    private int studentAge;
+    @Column(name = "age", nullable = false)
+    private int age;
 
     @ManyToOne(cascade = CascadeType.PERSIST)
-    @JoinColumn(name = "courseStudentListForeignKey")
-    private Course studentCourse;
+    @JoinColumn(name = "course_studentlist_foreignkey")
+    private Course course;
 
-    @Column(name = "EMAIL", nullable = false)
-    private String studentEmail;
+    @Column(name = "email", nullable = false)
+    private String email;
 
-    @Column(name = "EMAIL", nullable = false)
-    private int phoneNumber;
+    @Column(name = "phone_number", nullable = false)
+    private int number;
 
     public Student(int studentId, String studentName, int studentAge, String studentEmail) {
-        this.studentId = studentId;
-        this.studentName = studentName;
-        this.studentAge = studentAge;
-        this.studentEmail = studentEmail;
+        this.id = studentId;
+        this.name = studentName;
+        this.age = studentAge;
+        this.email = studentEmail;
     }
 
     @Override
     public String toString(){
-        return studentName;
+        return name;
     }
 }

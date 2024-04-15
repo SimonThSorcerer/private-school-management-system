@@ -13,6 +13,6 @@ import lombok.NoArgsConstructor;
 public class TeacherNameDto {
     @NotBlank(message = "Name: Must have a value, cannot be blank.")
     @Size(max = 1_000, message = "Name: Over the character limit of 1_000.")
-    private String teacherName;
+    private String teacherDtoName;
 }
 

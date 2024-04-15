@@ -9,27 +9,27 @@ import static org.junit.jupiter.api.Assertions.assertEquals;
 public class TeacherTest {
 
     Teacher testTeacher1 = new Teacher().builder()
-            .teacherId(1)
-            .teacherName("Teacher Name")
-            .teacherEmail("teachereamil@provider.com")
+            .id(1)
+            .name("Teacher Name")
+            .email("teachereamil@provider.com")
             .build();
 
     Teacher testTeacher2 = new Teacher().builder()
-            .teacherId(-99999)
-            .teacherName("!!ÁÉÁtreg.-.  __ //" + " " + "" + " " + " /d/n")
-            .teacherEmail("345teache!+ÁÉÉéáéáreamil@provider.com")
+            .id(-99999)
+            .name("!!ÁÉÁtreg.-.  __ //" + " " + "" + " " + " /d/n")
+            .email("345teache!+ÁÉÉéáéáreamil@provider.com")
             .build();
 
     @Test
     @DisplayName("#1: Positive test, valid Teacher should not throw exceptions or constraint violation messages.")
     void positiveTestingTeacherObjectCreation() {
 
-        assertEquals(1, testTeacher1.getTeacherId());
-        assertEquals("Teacher Name", testTeacher1.getTeacherName());
-        assertEquals("teachereamil@provider.com", testTeacher1.getTeacherEmail());
+        assertEquals(1, testTeacher1.getId());
+        assertEquals("Teacher Name", testTeacher1.getName());
+        assertEquals("teachereamil@provider.com", testTeacher1.getEmail());
 
-        assertEquals(-99999, testTeacher2.getTeacherId());
-        assertEquals("!!ÁÉÁtreg.-.  __ //   /d/n", testTeacher2.getTeacherName());
-        assertEquals("345teache!+ÁÉÉéáéáreamil@provider.com", testTeacher2.getTeacherEmail());
+        assertEquals(-99999, testTeacher2.getId());
+        assertEquals("!!ÁÉÁtreg.-.  __ //   /d/n", testTeacher2.getName());
+        assertEquals("345teache!+ÁÉÉéáéáreamil@provider.com", testTeacher2.getEmail());
     }
 }

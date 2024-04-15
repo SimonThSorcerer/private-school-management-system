@@ -1,5 +1,10 @@
+springbootproject\object\StudentTest.class
 springbootproject\service\TeacherServiceTest.class
 springbootproject\dto\StudentDtoTest.class
-springbootproject\dto\StudentIdDtoTest.class
-springbootproject\NewSpringBootTestApplicationTests.class
+springbootproject\dto\StudentDtoListDtoTest.class
 springbootproject\controller\StudentControllerImplTest.class
+springbootproject\dto\StudentIdDtoTest.class
+springbootproject\object\CourseTest.class
+springbootproject\object\TeacherTest.class
+springbootproject\controller\TeacherControllerTest.class
+springbootproject\NewSpringBootTestApplicationTests.class

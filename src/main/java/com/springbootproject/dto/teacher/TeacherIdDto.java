@@ -13,6 +13,6 @@ import lombok.NoArgsConstructor;
 public class TeacherIdDto {
     @Min(value = 1, message = "ID: Must have a value and be above 1 and below 2_000_000_000.")
     @Max(value = 2_000_000_000, message = "ID: Must have a value and be above 1 and below 2_000_000_000.")
-    private int teacherId;
+    private int teacherDtoId;
 }
 

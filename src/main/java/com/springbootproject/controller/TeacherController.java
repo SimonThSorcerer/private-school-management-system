@@ -39,28 +39,28 @@ public class TeacherController {
         }
     }
 
-    @GetMapping("/teachers/edit/{courseId}")
+    @GetMapping("/teachers/edit/{courseDtoId}")
     public String editTeacherForm(@PathVariable int id, Model model) {
         model.addAttribute("teacher", teacherService.getTeacherById(id));
         return "teacher/edit_teacher";
     }
 
-    @PostMapping("/teachers/{courseId}")
+    @PostMapping("/teachers/{courseDtoId}")
     public String updateTeacher(@PathVariable int id,
                                 @ModelAttribute("teacher") Teacher teacher,
                                 Model model) {
-        //get teacher from database by courseId
+        //get teacher from database by courseDtoId
         Teacher teacherFound = teacherService.getTeacherById(id);
-        teacherFound.setTeacherId(id);
-        teacherFound.setTeacherName(teacher.getTeacherName());
-        teacherFound.setTeacherEmail(teacher.getTeacherEmail());
+        teacherFound.setId(id);
+        teacherFound.setName(teacher.getName());
+        teacherFound.setEmail(teacher.getEmail());
 
         //save updated teacher
         teacherService.updateTeacher(teacherFound);
         return "redirect:/teachers";
     }
 
-    @GetMapping("teachers/{courseId}")
+    @GetMapping("teachers/{courseDtoId}")
     public String deleteTeacher(@PathVariable int id) {
         teacherService.deleteTeacherById(id);
         return "redirect:/teachers";
