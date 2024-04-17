@@ -20,7 +20,7 @@ public class EmployeeController {
 
     @GetMapping("/employees/{id}")
     public ResponseEntity<EmployeeDto> getEmployeeDetails(@PathVariable("id") int id) {
-        return ResponseEntity.status(HttpStatus.OK).body(employeeService.getEmployeeById(id));
+        return ResponseEntity.status(HttpStatus.OK).body(employeeService.getEmployeeByIdUsingRestTemplate(id));
     }
 
 
