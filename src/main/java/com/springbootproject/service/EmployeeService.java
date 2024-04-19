@@ -2,15 +2,22 @@ package com.springbootproject.service;
 
 import com.springbootproject.dto.address.AddressDto;
 import com.springbootproject.dto.employee.EmployeeDto;
+import com.springbootproject.feignclient.AddressClient;
 import com.springbootproject.object.Employee;
 import com.springbootproject.repository.EmployeeRepository;
 import org.modelmapper.ModelMapper;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
-import org.springframework.boot.web.client.RestTemplateBuilder;
+import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
 import org.springframework.web.client.RestTemplate;
 import org.springframework.web.reactive.function.client.WebClient;
+import reactor.core.publisher.Mono;
+
+import java.util.Optional;
+
+import static org.springframework.http.ResponseEntity.status;
 
 @Service
 public class EmployeeService {
@@ -20,17 +27,23 @@ public class EmployeeService {
     ModelMapper modelMapper;
     //    @Autowired
 //    RestTemplate restTemplate;
+
     @Autowired
     WebClient webClient;
+
+    @Autowired
+    AddressClient addressClient;
+
     RestTemplate restTemplate;
+
     @Value("${addressservice.base.url}")
     private String addressBaseURL;
 
-    public EmployeeService(@Value("${addressservice.base.url}") String addressBaseURL, RestTemplateBuilder restTemplateBuilder) {
-        this.restTemplate = restTemplateBuilder
-                .rootUri(addressBaseURL)
-                .build();
-    }
+//    public EmployeeService(@Value("${addressservice.base.url}") String addressBaseURL, RestTemplateBuilder restTemplateBuilder) {
+//        this.restTemplate = restTemplateBuilder
+//                .rootUri(addressBaseURL)
+//                .build();
+//    }
 
     public EmployeeDto getEmployeeByIdUsingRestTemplate(int id) {
         Employee employee = employeeRepository.findById(id).orElse(null);
@@ -49,22 +62,54 @@ public class EmployeeService {
         return modelMapper.map(employee, EmployeeDto.class);
     }
 
-    public EmployeeDto getEmployeeByIdUsingSpringReactiveWeb(int id) {
+    public Mono<EmployeeDto> getEmployeeByIdUsingSpringReactiveWeb(int id) {
         Employee employee = employeeRepository.findById(id).orElse(null);
-        EmployeeDto employeeDto = employeeToEmployeeDtoMapper(employee);
+        if (employee == null) {
+            return Mono.empty();
+        }
 
-        AddressDto addressDto = webClient
-                .get()
-                .uri("/address/" + id)
+        EmployeeDto employeeDto = employeeToEmployeeDtoMapper(employee);
+        return webClient.get()
+                .uri("address/" + id)
                 .retrieve()
                 .bodyToMono(AddressDto.class)
-                .block();
-
-        employeeDto.setAddressDto(addressDto);
-
-
-        return employeeDto;
+                .map(addressDto -> {
+                    employeeDto.setAddressDto(addressDto);
+                    return employeeDto;
+                });
     }
 
+//    @Autowired
+//    WebClient.Builder webClientBuilder;
+//
+//
+//    public Mono<EmployeeDto> getEmployeeById(int id) {
+//        return Mono.justOrEmpty(employeeRepository.findById(id))
+//                .flatMap(employee -> {
+//                    EmployeeDto employeeDto = employeeToEmployeeDtoMapper(employee);
+//                    return webClientBuilder.build()
+//                            .get()
+//                            .uri(addressBaseURL + "/address/" + id)
+//                            .retrieve()
+//                            .bodyToMono(AddressDto.class)
+//                            .map(addressDto -> {
+//                                employeeDto.setAddressDto(addressDto);
+//                                return employeeDto;
+//                            });
+//                });
+//    }
 
+
+
+    public ResponseEntity<EmployeeDto> getEmployeeByIdUsingFeignClient(int id) {
+        Optional<Employee> employeeOptional = employeeRepository.findById(id);
+        if (employeeOptional == null) {
+            return  null;
+        } else {
+            ResponseEntity<AddressDto> addressDto = addressClient.getAddressByEmployeeId(id);
+            EmployeeDto employeeDto = employeeToEmployeeDtoMapper(employeeOptional.get());
+            employeeDto.setAddressDto(addressDto.getBody());
+            return status(HttpStatus.CREATED).body(employeeDto);
+        }
+    }
 }

@@ -3,6 +3,7 @@ package com.springbootproject.config;
 import org.modelmapper.ModelMapper;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.boot.autoconfigure.web.reactive.function.client.WebClientSsl;
+import org.springframework.cloud.openfeign.FeignClient;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.web.client.RestTemplate;
@@ -32,6 +33,6 @@ public class EmployeeConfig {
         return WebClient.builder()
                 .baseUrl(addressBaseURL)
                 .build();
-
     }
+
 }

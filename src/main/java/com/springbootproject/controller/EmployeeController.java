@@ -10,6 +10,7 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RestController;
+import reactor.core.publisher.Mono;
 
 @RestController
 public class EmployeeController {
@@ -18,10 +19,19 @@ public class EmployeeController {
     EmployeeService employeeService;
 
 
-    @GetMapping("/employees/{id}")
-    public ResponseEntity<EmployeeDto> getEmployeeDetails(@PathVariable("id") int id) {
-        return ResponseEntity.status(HttpStatus.OK).body(employeeService.getEmployeeByIdUsingRestTemplate(id));
-    }
+//    @GetMapping("/employees/{id}" //For resttempalte or synchronious webclient
+//    public ResponseEntity<EmployeeDto> getEmployeeDetails(@PathVariable("id") int id) {
+//        return ResponseEntity.status(HttpStatus.OK).body(employeeService.getEmployeeByIdUsingSpringReactiveWeb(id));
+//    }
 
+//    @GetMapping("/employees/{id}")  //for asynchronious webclient
+//    public Mono<EmployeeDto> getEmployeeDetails(@PathVariable("id") int id) {
+//        return ResponseEntity.status(HttpStatus.OK).body(employeeService.getEmployeeByIdUsingSpringReactiveWeb(id)).getBody();
+//    }
+
+    @GetMapping("/employees/{id}")  //for asynchronious webclient
+    public ResponseEntity<EmployeeDto> getEmployeeDetails(@PathVariable("id") int id) {
+        return ResponseEntity.status(HttpStatus.OK).body(employeeService.getEmployeeByIdUsingFeignClient(id)).getBody();
+    }
 
 }
