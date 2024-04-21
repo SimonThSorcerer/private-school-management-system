@@ -24,5 +24,5 @@ public class AddressDto {
     String state;
 
     @NotBlank
-    int zip;
+    String zip;
 }

@@ -6,7 +6,7 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 
-@FeignClient(name="AddressClient", url="http://localhost:8081/address-app/api/address")
+@FeignClient(name="AddressClient", url="http://localhost:8081/address-app", path="api/address")
 public interface AddressClient {
 
     @GetMapping("/{id}")

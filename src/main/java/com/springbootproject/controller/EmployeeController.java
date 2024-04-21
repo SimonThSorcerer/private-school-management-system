@@ -29,9 +29,13 @@ public class EmployeeController {
 //        return ResponseEntity.status(HttpStatus.OK).body(employeeService.getEmployeeByIdUsingSpringReactiveWeb(id)).getBody();
 //    }
 
-    @GetMapping("/employees/{id}")  //for asynchronious webclient
+    @GetMapping("/employeewithaddress/{id}")  //for asynchronious webclient
     public ResponseEntity<EmployeeDto> getEmployeeDetails(@PathVariable("id") int id) {
         return ResponseEntity.status(HttpStatus.OK).body(employeeService.getEmployeeByIdUsingFeignClient(id)).getBody();
     }
 
+    @GetMapping("/employees/{id}")
+    public EmployeeDto getEmployeeDetailsOnlyWithoutAddress(@PathVariable("id") int id) {
+        return employeeService.getEmployeeByIdWithoutAddress(id);
+    }
 }

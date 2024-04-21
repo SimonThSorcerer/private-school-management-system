@@ -17,7 +17,7 @@ import reactor.core.publisher.Mono;
 
 import java.util.Optional;
 
-import static org.springframework.http.ResponseEntity.status;
+import org.springframework.http.ResponseEntity;
 
 @Service
 public class EmployeeService {
@@ -44,6 +44,10 @@ public class EmployeeService {
 //                .rootUri(addressBaseURL)
 //                .build();
 //    }
+
+    public ResponseEntity<EmployeeDto> getResponseEntityEmployeeDtoWithoutAddress(int id) {
+        return ResponseEntity.status(HttpStatus.CREATED).body(employeeToEmployeeDtoMapper(employeeRepository.findById(id).orElse(null)));
+    }
 
     public EmployeeDto getEmployeeByIdUsingRestTemplate(int id) {
         Employee employee = employeeRepository.findById(id).orElse(null);
@@ -109,7 +113,17 @@ public class EmployeeService {
             ResponseEntity<AddressDto> addressDto = addressClient.getAddressByEmployeeId(id);
             EmployeeDto employeeDto = employeeToEmployeeDtoMapper(employeeOptional.get());
             employeeDto.setAddressDto(addressDto.getBody());
-            return status(HttpStatus.CREATED).body(employeeDto);
+            return ResponseEntity.status(HttpStatus.CREATED).body(employeeDto);
+        }
+    }
+
+    public EmployeeDto getEmployeeByIdWithoutAddress(int id) {
+        Employee employee = employeeRepository.findById(id).orElse(null);
+        if (employee == null) {
+            return null;
+        } else {
+            EmployeeDto employeeDto = employeeToEmployeeDtoMapper(employee);
+            return employeeDto;
         }
     }
 }
