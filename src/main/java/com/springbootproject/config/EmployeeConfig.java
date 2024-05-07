@@ -25,7 +25,7 @@ public class EmployeeConfig {
 //        return new RestTemplate();
 //    }
 
-    // This is for Reactive Web Services, use one or the other, this oen is more professional and faster
+    // This is for Reactive Web Services, use one or the other, this one is more professional and faster
 
     @Bean
     public WebClient webClient() {
